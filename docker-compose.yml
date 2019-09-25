@@ -48,9 +48,9 @@ services:
       - "8000:8000"
       - "8001:80"
 
-  grafana:
-    image: grafana:latest
-    container_name: grafana
-    restart: always
-    ports:
-      - 3000:3000
+        #  grafana:
+        #image: grafana:latest
+        #container_name: grafana
+        #restart: always
+        #ports:
+        #- 3000:3000
