@@ -1,0 +1,56 @@
+version: '3'
+
+services:
+  db:
+    image: mysql:5.7
+    volumes:
+      - ./db:/docker-entrypoint-initdb.d
+    restart: always
+    environment:
+      - MYSQL_USER=dbuser
+      - MYSQL_PASSWORD=dbpassword
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=quotes_db
+      - MYSQL_ALLOW_EMPTY_PASSWORD=yes
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    restart: always
+    depends_on:
+      - db
+    environment:
+      - PMA_HOST=db
+      - MYSQL_ROOT_PASSWORD=root
+    ports:
+      - 8080:80
+
+  api:
+    build: ./api
+    container_name: api
+    restart: always
+    volumes:
+      - ./api/:/app
+    expose:
+      - 9000
+
+  ui:
+    build: ./ui
+    container_name: ui
+    restart: always
+    expose:
+      - 80
+
+  nginx:
+    build: ./nginx
+    container_name: nginx
+    restart: always
+    ports:
+      - "8000:8000"
+      - "8001:80"
+
+  grafana:
+    image: grafana:latest
+    container_name: grafana
+    restart: always
+    ports:
+      - 3000:3000
