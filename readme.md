@@ -2,6 +2,8 @@ Please find the tutorial at https://medium.com/@samy_raps/flask-vue-mysql-on-doc
 
 ### Important commands
 
+Create a folder called `data` inside the `db` folder.
+
 Build and run :: `docker-compose up --build`
 
 Build and run in the background and view logs for all the instances ::
