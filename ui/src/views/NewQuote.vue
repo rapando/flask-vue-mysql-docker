@@ -37,7 +37,7 @@ export default {
     submitQuote() {
       this.loading = false;
 
-      fetch("http://localhost:5000", {
+      fetch("http://localhost:8000", {
         method: "POST",
         headers: {
           "Content-type": "application/json"

@@ -1,10 +1,11 @@
-version: '3'
+version: "3"
 
 services:
   db:
     image: mysql:5.7
     volumes:
       - ./db:/docker-entrypoint-initdb.d
+      - ./db/data:/var/lib/mysql
     restart: always
     environment:
       - MYSQL_USER=dbuser

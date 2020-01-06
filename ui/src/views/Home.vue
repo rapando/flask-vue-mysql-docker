@@ -22,7 +22,7 @@ export default {
     quotes: []
   }),
   created() {
-    fetch("http://localhost:5000")
+    fetch("http://localhost:8000")
       .then(res => res.json())
       .then(response => {
         this.quotes = response.quotes;
