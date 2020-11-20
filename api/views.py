@@ -24,7 +24,7 @@ class Quote(Resource):
 
     def post(self):
         """
-        Add a quote to the db teste
+        Add a quote to the db
         Expect a JSON payload with the following format
         {
             "quote": "The quote",
