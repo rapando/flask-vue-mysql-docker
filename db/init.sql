@@ -1,6 +1,7 @@
-CREATE TABLE `quote` (
+CREATE TABLE `equacao` (
     `id` INT(11) PRIMARY KEY AUTO_INCREMENT,
-    `perimetro` DECIMAL NOT NULL,
+    `area` DECIMAL NOT NULL,
+    `created` DATETIME DEFAULT CURRENT_TIMESTAMP()
 );
 
 -- INSERT INTO `quote` (`quote`, `quote_by`, `added_by`)
